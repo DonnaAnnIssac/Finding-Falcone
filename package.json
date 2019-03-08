@@ -1,0 +1,19 @@
+{
+  "name": "finding-falcone",
+  "version": "1.0.0",
+  "description": "Our problem is set in the planet of Lengaburu…in the distant distant galaxy of Tara B. After the recent war with neighbouring planet Falicornia, King Shan has exiled the Queen of Falicornia for 15 years. Queen Al Falcone is now in hiding. But if King Shan can find her before the years are up, she will be exiled for another 15 years….",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonnaAnnIssac/Finding-Falcone.git"
+  },
+  "author": "Donna Ann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DonnaAnnIssac/Finding-Falcone/issues"
+  },
+  "homepage": "https://github.com/DonnaAnnIssac/Finding-Falcone#readme"
+}
