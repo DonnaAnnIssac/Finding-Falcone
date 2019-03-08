@@ -1,11 +1,13 @@
-import React, { Component} from "react";
+import React from "react";
 import "../styles/app.css";
-
-class App extends Component{
+import MainContainer from "./main-container";
+class App extends React.Component{
   render(){
     return(
       <div className="App">
-        <h1> Hello, World! </h1>
+        {/* add header here */}
+        <MainContainer/>
+        {/* add footer here */}
       </div>
     );
   }
