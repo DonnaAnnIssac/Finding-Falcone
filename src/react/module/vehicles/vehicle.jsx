@@ -8,11 +8,15 @@ class Vehicle extends React.Component {
             vehicleCurrentQty : this.props.vehicleData.total_no,
         }
     }
+    componentWillReceiveProps(nextProps) {
+        if (!nextProps.selected) {
+            this.setState({
+                vehicleCurrentQty : nextProps.vehicleData.total_no,
+            })
+        }
+    }
 
     render() {
-        console.log(this.props.disable
-            ? "vehicleRow disabledVehicleRow " 
-            : this.props.selected ? "vehicleRow selectedVehicleRow" : "vehicleRow");
         return (
             <div
                 className={
@@ -36,14 +40,13 @@ class Vehicle extends React.Component {
                     Speed: {this.props.vehicleData.speed}
                 </div>
                 <div className="vehicleQuantity">
-                    Quantity: {this.state.vehicleCurrentQty}
+                    Quantity: {this.props.selected ? this.state.vehicleCurrentQty : this.props.vehicleData.total_no}
                 </div>
             </div>
         )
     }
 
     onClick(event) {
-        console.log(event.target.id);
         this.props.onClickHandler(event.target.id);
         this.setState({
             vehicleCurrentQty: this.state.vehicleCurrentQty - 1,
