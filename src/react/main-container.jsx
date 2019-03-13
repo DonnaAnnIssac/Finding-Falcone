@@ -43,7 +43,6 @@ class MainContainer extends React.Component {
   async fetchPlanets() {
     const planetsInfo = await fetch("https://findfalcone.herokuapp.com/planets");
     const planetsInfoJson = await planetsInfo.json();
-    // console.log(planetsInfoJson);
     this.setState({
         planets: planetsInfoJson,
     })
@@ -52,7 +51,6 @@ class MainContainer extends React.Component {
   async fetchVehicles() {
     const vehiclesInfo = await fetch("https://findfalcone.herokuapp.com/vehicles");
     const vehiclesInfoJson = await vehiclesInfo.json();
-    // console.log(vehiclesInfoJson);
     this.setState({
         vehicles : vehiclesInfoJson,
     })
@@ -63,18 +61,14 @@ class MainContainer extends React.Component {
     this.setState({
         selectedPlanet: planet,
         selectedVehicle: null,
-    }, () => {
-        console.log(this.state.selectedPlanet);
-    })
+    });
   }
 
   onVehicleRowClick(vehicleName) {
     const vehicle = this.state.vehicles.find(vehicle => vehicle.name === vehicleName)
     this.setState({
       selectedVehicle: vehicle
-    }, () => {
-      console.log(this.state.selectedVehicle);
-    })
+    });
   }
 }
 

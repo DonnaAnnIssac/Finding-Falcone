@@ -19,7 +19,6 @@ class Planet extends React.Component {
     }
 
     onClick(event) {
-        console.log(event.target.id);
         this.props.onClickHandler(event.target.id);
     }
 }
