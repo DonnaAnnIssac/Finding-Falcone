@@ -30,7 +30,11 @@ class MainContainer extends React.Component {
           vehiclesArray={this.state.vehicles}
           onClick={this.onVehicleRowClick}
         />
-        <TimeContainer selectedPlanet={this.state.selectedPlanet} selectedVehicle={this.state.selectedVehicle}/>
+        <TimeContainer
+          display={this.state.selectedPlanet && this.state.selectedVehicle ? true : false}
+          selectedPlanet={this.state.selectedPlanet}
+          selectedVehicle={this.state.selectedVehicle}
+        />
       </div>
     );
   }

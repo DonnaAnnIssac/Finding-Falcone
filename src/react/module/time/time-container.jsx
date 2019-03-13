@@ -2,10 +2,16 @@ import React from "react";
 
 class TimeContainer extends React.Component {
     render() {
+        const timeTakenDiv = this.props.display
+            ? 
+                <div>
+                    <h4>Time Taken</h4>
+                    {this.calculateTimeTaken()}
+                </div>
+            : ""
         return (
             <div className="timeContainer">
-                <h4>Time Taken</h4>
-                {this.calculateTimeTaken()}
+                {timeTakenDiv}
             </div>
         );
     }
