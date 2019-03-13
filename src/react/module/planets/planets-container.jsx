@@ -6,7 +6,6 @@ class PlanetsContainer extends React.Component {
     render() {
         return (
             <div className="planetsContainer">
-                {/* <h4>Planet Container</h4> */}
                 <div>
                     {this.props.planetsArray.map((planetObj, index) => {
                         return (
@@ -15,6 +14,7 @@ class PlanetsContainer extends React.Component {
                                 selected={this.props.selectedPlanet && this.props.selectedPlanet.name === planetObj.name
                                     ? true : false}
                                 onClickHandler={this.props.onClick}
+                                disable={planetObj.chosen}
                                 key={index}
                             />
                         )
