@@ -7,12 +7,21 @@ class Planet extends React.Component {
 
     render() {
         return (
-            <div className={this.props.selected ? "selectedPlanetRow" : "planetRow"} id={this.props.planetData.name} onClick={(e) => {this.onClick(e)}}>
+            <div 
+                className={
+                    this.props.disable
+                    ? "planetRow disabledPlanetRow"
+                    : this.props.selected
+                        ? "planetRow selectedPlanetRow"
+                        : "planetRow"}
+                id={this.props.planetData.name}
+                onClick={(e) => {this.onClick(e)}}
+            >
                 <div className="planetName">
-                    Name: {this.props.planetData.name}
+                    {this.props.planetData.name.toUpperCase()}
                 </div>
                 <div className="planetDistance">
-                    Distance: {this.props.planetData.distance}
+                    Distance: {this.props.planetData.distance} megamiles
                 </div>
             </div>
         );
