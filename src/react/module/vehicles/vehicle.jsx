@@ -31,16 +31,16 @@ class Vehicle extends React.Component {
                 disabled={this.props.disable}
             >
                 <div className="vehicleName">
-                    Name: {this.props.vehicleData.name}
+                    {this.props.vehicleData.name.toUpperCase()}
                 </div>
                 <div className="vehicleDistance">
-                    Max Distance: {this.props.vehicleData.max_distance}
+                    Max Distance: {this.props.vehicleData.max_distance} megamiles
                 </div>
                 <div className="vehicleSpeed">
-                    Speed: {this.props.vehicleData.speed}
+                    Speed: {this.props.vehicleData.speed} megamiles/hour
                 </div>
                 <div className="vehicleQuantity">
-                    Quantity: {this.props.selected ? this.state.vehicleCurrentQty : this.props.vehicleData.total_no}
+                    Units: {this.props.selected ? this.state.vehicleCurrentQty : this.props.vehicleData.total_no}
                 </div>
             </div>
         )
