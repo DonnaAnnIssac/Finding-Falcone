@@ -11,9 +11,9 @@ class VehiclesContainer extends React.Component {
                         <Vehicle
                             vehicleData={vehicleObj}
                             disable={
-                                this.props.selectedPlanet.distance <= vehicleObj.max_distance
-                                ? false
-                                : true
+                                (this.props.selectedPlanet.distance > vehicleObj.max_distance) || vehicleObj.total_no === 0
+                                ? true
+                                : false
                             }
                             selected={this.props.selectedVehicle && this.props.selectedVehicle.name === vehicleObj.name
                                 ? true : false}
