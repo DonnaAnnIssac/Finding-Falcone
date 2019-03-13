@@ -1,10 +1,33 @@
 import React from "react";
+import Vehicle from "./vehicle";
 
 class VehiclesContainer extends React.Component {
     render() {
-        return (
+        const vehiclesDiv = this.props.display
+        ?
             <div>
-                <h4>Vehicles Container</h4>
+                {this.props.vehiclesArray.map((vehicleObj, index) => {
+                    return (
+                        <Vehicle
+                            vehicleData={vehicleObj}
+                            disable={
+                                this.props.selectedPlanet.distance <= vehicleObj.max_distance
+                                ? false
+                                : true
+                            }
+                            selected={this.props.selectedVehicle && this.props.selectedVehicle.name === vehicleObj.name
+                                ? true : false}
+                            onClickHandler={this.props.onClick}
+                            key={index}
+                        />
+                    )
+                })}
+            </div>
+        : ""
+        return (
+            <div className="vehiclesContainer">
+                {/* <h4>Vehicles Container</h4> */}
+                {vehiclesDiv}
             </div>
         );
     }
