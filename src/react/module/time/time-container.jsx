@@ -7,6 +7,9 @@ class TimeContainer extends React.Component {
                 <div>
                     <h4>Time Taken</h4>
                     {this.calculateTimeTaken()}
+                    <div>
+                        <button onClick={(e) => this.onClick(e)}>Select</button>
+                    </div>
                 </div>
             : ""
         return (
@@ -20,6 +23,10 @@ class TimeContainer extends React.Component {
         return this.props.selectedPlanet && this.props.selectedVehicle
         ? this.props.selectedPlanet.distance / this.props.selectedVehicle.speed
         : 0;
+    }
+
+    onClick(e) {
+        this.props.onClick();
     }
 }
 
