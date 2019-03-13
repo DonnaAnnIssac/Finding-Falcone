@@ -1,4 +1,85 @@
+body {
+  height: 100%;
+  width: 100%;
+}
+
 .App {
-    margin: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  margin: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.timeContainer {
+  flex-grow: 1;
+}
+
+.vehiclesContainer {
+  flex-grow: 1;
+}
+
+.planetsContainer {
+  flex-grow: 1;
+}
+
+.planetRow {
+  border: 2px solid green;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #cfc;
+}
+
+.selectedPlanetRow {
+  border: 2px solid red;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #cfc;
+}
+
+.planetName {
+  pointer-events: none;
+}
+
+.planetDistance {
+  pointer-events: none;
+}
+
+.vehicleRow {
+  border: 2px solid green;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #cfc;
+}
+
+.selectedVehicleRow {
+  border: 2px solid red;
+  background-color: #cfc;
+}
+
+.disabledVehicleRow {
+  pointer-events: none;
+  background-color: gray;
+}
+
+.vehicleName {
+  pointer-events: none;
+}
+
+.vehicleDistance {
+  pointer-events: none;
+}
+
+.vehicleSpeed {
+  pointer-events: none;
+}
+
+.vehicleQuantity {
+  pointer-events: none;
+}
