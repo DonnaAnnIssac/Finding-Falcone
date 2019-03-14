@@ -1,5 +1,7 @@
+import "babel-polyfill";
 import React from "react";
 import Result from "./result"
+
 export default class ResultContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +13,6 @@ export default class ResultContainer extends React.Component {
     render() {
         return(
             <div>
-                Finding Falcone...
                 <Result status={this.state.status} planetName={this.state.foundInPlanet}/>
             </div>
         )
