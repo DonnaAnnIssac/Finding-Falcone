@@ -1,13 +1,18 @@
 import React from "react";
 import "../styles/app.css";
-import MainContainer from "./main-container";
-class App extends React.Component{
-  render(){
-    return(
+import MainContainer from "./module/common/main-container";
+
+class App extends React.Component {
+  render() {
+    return (
       <div className="App">
-        {/* add header here */}
+        <div id="header" className="header">
+          <div className="title">
+					  Finding Falcone
+          </div>
+        </div>
         <MainContainer/>
-        {/* add footer here */}
+        <div className="footer"></div>
       </div>
     );
   }
