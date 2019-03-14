@@ -2,7 +2,7 @@ import React from "react";
 import PlanetsContainer from "./module/planets/planets-container"
 import VehiclesContainer from "./module/vehicles/vehicles-container"
 import TimeContainer from "./module/time/time-container";
-
+import ResultContainer from "./module/result/result-container";
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,8 @@ class MainContainer extends React.Component {
       selectedPlanet: null,
       vehicles : [],
       selectedVehicle: null,
-      chosenPlanets: 0,
+      chosenPlanets: [],
+      chosenVehicles: [],
       findFalcone: false,
       totalTime: 0,
     }
@@ -21,35 +22,35 @@ class MainContainer extends React.Component {
   }
 
   render() {
-    if (!this.state.findFalcone) {
+    if (this.state.findFalcone) {
       return (
         <div className="mainContainer">
-          <PlanetsContainer
-            planetsArray={this.state.planets}
-            selectedPlanet={this.state.selectedPlanet}
-            onClick={this.onPlanetRowClick}
-          />
-          <VehiclesContainer
-            display={this.state.selectedPlanet ? true : false}
-            selectedVehicle={this.state.selectedVehicle}
-            selectedPlanet={this.state.selectedPlanet}
-            vehiclesArray={this.state.vehicles}
-            onClick={this.onVehicleRowClick}
-          />
-          <TimeContainer
-            display={this.state.selectedPlanet && this.state.selectedVehicle ? true : false}
-            selectedPlanet={this.state.selectedPlanet}
-            selectedVehicle={this.state.selectedVehicle}
-            onClick={this.onButtonClick}
-          />
+          <ResultContainer planets={this.state.chosenPlanets} vehicles={this.state.chosenVehicles}/>
         </div>
-      );
+      )
     }
     return (
       <div className="mainContainer">
-        <ResultContainer/>
+        <PlanetsContainer
+          planetsArray={this.state.planets}
+          selectedPlanet={this.state.selectedPlanet}
+          onClick={this.onPlanetRowClick}
+        />
+        <VehiclesContainer
+          display={this.state.selectedPlanet ? true : false}
+          selectedVehicle={this.state.selectedVehicle}
+          selectedPlanet={this.state.selectedPlanet}
+          vehiclesArray={this.state.vehicles}
+          onClick={this.onVehicleRowClick}
+        />
+        <TimeContainer
+          display={this.state.selectedPlanet && this.state.selectedVehicle ? true : false}
+          selectedPlanet={this.state.selectedPlanet}
+          selectedVehicle={this.state.selectedVehicle}
+          onClick={this.onButtonClick}
+        />
       </div>
-    )
+    );
   }
 
   componentDidMount() {
@@ -89,23 +90,23 @@ class MainContainer extends React.Component {
   }
 
   onButtonClick() {
-    let count = 0;
-    // disable selected planet from list
-    // check if four planets have been chosen
+    const chosenPlanetsArr = this.state.chosenPlanets, chosenVehiclesArr = this.state.chosenVehicles;
     const tempPlanets = this.state.planets;
+    /* disable selected planet from list, add selected planet to chosen planets array
+      check if four planets have been chosen */
     tempPlanets.forEach((planet) => {
-      if (planet.chosen) {
-        count ++;
-      }
       if (planet.name === this.state.selectedPlanet.name) {
         planet.chosen = true;
-        count ++;
+        chosenPlanetsArr.push(planet);
       }
     });
+    /* Decrement units count of selected vehicle from list,
+      add selected vehicle to chosen vehicles array */
     const tempVehicles = this.state.vehicles;
     tempVehicles.forEach((vehicle) => {
       if (vehicle.name === this.state.selectedVehicle.name) {
         vehicle.total_no = vehicle.total_no - 1;
+        chosenVehiclesArr.push(vehicle);
       }
     })
     // set state selectedPlanet and selectedVehicle to null
@@ -114,7 +115,9 @@ class MainContainer extends React.Component {
       selectedVehicle : null,
       planets : tempPlanets,
       vehicles: tempVehicles,
-      findFalcone: count === 4 ? true : false,
+      findFalcone: chosenPlanetsArr.length === 4 ? true : false,
+      chosenPlanets: chosenPlanetsArr,
+      chosenVehicles: chosenVehiclesArr,
     })
   }
 }
