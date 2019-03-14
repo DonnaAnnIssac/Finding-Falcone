@@ -1,14 +1,44 @@
 body {
   height: 100%;
   width: 100%;
+  margin: 0;
 }
 
 .App {
-  margin: 1rem;
+  height: 100%;
+  width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.header {
+  margin: 0;
+  text-align: center;
+  height: 65px;
+  padding: 5px;
+  background-color: #1a303b;
+  color: white;
+  font-size: xx-large;
+}
+
+.footer {
+  height: 45px;
+  padding: 5px;
+}
+.title {
+  height: 100%;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  top: 50%;
+  left: 50%;
+}
+
 .mainContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.main {
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -20,27 +50,35 @@ body {
 
 .vehiclesContainer {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .planetsContainer {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .planetRow {
-  border: 2px solid green;
+  flex-grow: 1;
+  border: 2px solid #57777b;
   margin: 5px;
   padding: 10px;
   border-radius: 20px;
-  background-color: #cfc;
+  background-color: #517b5d;
+  color: white;
 }
 
 .selectedPlanetRow {
-  border: 2px solid red;
+  border: 2px solid #022327;
 }
 
 .disabledPlanetRow {
   pointer-events: none;
-  background-color: gray;
+  background-color: #57777b;
 }
 
 .planetName {
@@ -52,21 +90,23 @@ body {
 }
 
 .vehicleRow {
-  border: 2px solid green;
+  flex-grow: 1;
+  border: 2px solid #57777b;
   margin: 5px;
   padding: 10px;
   border-radius: 20px;
-  background-color: #cfc;
+  background-color: #517b5d;
+  color: white;
 }
 
 .selectedVehicleRow {
-  border: 2px solid red;
-  background-color: #cfc;
+  border: 2px solid #022327;
+  background-color: #517b5d;
 }
 
 .disabledVehicleRow {
   pointer-events: none;
-  background-color: gray;
+  background-color: #57777b;
 }
 
 .vehicleName {
