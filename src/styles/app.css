@@ -36,10 +36,11 @@ body {
 
 .selectedPlanetRow {
   border: 2px solid red;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 20px;
-  background-color: #cfc;
+}
+
+.disabledPlanetRow {
+  pointer-events: none;
+  background-color: gray;
 }
 
 .planetName {
