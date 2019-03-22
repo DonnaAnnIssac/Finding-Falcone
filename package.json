@@ -2,9 +2,9 @@
   "name": "finding-falcone",
   "version": "1.0.0",
   "description": "Our problem is set in the planet of Lengaburu…in the distant distant galaxy of Tara B. After the recent war with neighbouring planet Falicornia, King Shan has exiled the Queen of Falicornia for 15 years. Queen Al Falcone is now in hiding. But if King Shan can find her before the years are up, she will be exiled for another 15 years….",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "start": "webpack-dev-server --host 0.0.0.0 --mode development"
   },
   "repository": {
@@ -24,6 +24,9 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "jest": "^24.5.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.1",
@@ -31,8 +34,14 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "identity-obj-proxy": "^3.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router": "^3.2.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
   }
 }
